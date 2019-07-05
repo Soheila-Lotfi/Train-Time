@@ -57,7 +57,7 @@ $("#add-user").click(function(event){
     var nextArrival = moment().add(tMinutesTillTrain, "minutes");
     var nextTrainArrival=moment(nextArrival).format("hh:mm");
 
-// Uploads employee data to the database
+// Uploads train data to the database
   database.ref().push({
 
     name:trainName,
@@ -68,4 +68,18 @@ $("#add-user").click(function(event){
     minutesAway: tMinutesTillTrain,
   });
 
+  //Create Firebase event for adding data to the database 
+  //and a row in the html when a user adds an entry
+  database.ref().on("child_added", function(snapshot){
+
+        var sv=snapshot.val();
+        var  newRow= $("<tr>").append(
+        $("<td>").text(sv.name), 
+        $("<td>").text(sv.destination),
+        $("<td>").text(sv.frequency),
+        $("<td>").text(sv.nextarrival),
+        $("<td>").text(sv.MinutesAway));
+        
+        $("#employee-table > tbody").append(newRow);
+  });
 });
