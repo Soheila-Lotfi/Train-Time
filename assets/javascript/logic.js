@@ -52,6 +52,9 @@ $("#add-user").click(function(event){
 
     // Minute Until Train
     var tMinutesTillTrain = tFrequency - tRemainder;
-// ---------------------------------------------------------------      
+// ---------------------------------------------------------------     
+// calculate Next Train Arrival time
+    var nextArrival = moment().add(tMinutesTillTrain, "minutes");
+    var nextTrainArrival=moment(nextArrival).format("hh:mm");
 
 });
