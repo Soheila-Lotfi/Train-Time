@@ -28,7 +28,7 @@ var minutesAway=0;
 $("#add-user").click(function(event){
 
     event.preventDefault();     
-
+    console.log("gg");
 // grab the user input
     var trainName=$("#train-name-input").val().trim();
     var destination=$("#destination-input").val().trim();
@@ -56,6 +56,7 @@ $("#add-user").click(function(event){
 // calculate Next Train Arrival time
     var nextArrival = moment().add(tMinutesTillTrain, "minutes");
     var nextTrainArrival=moment(nextArrival).format("hh:mm");
+    console.log(nextTrainArrival);
 
 // Uploads train data to the database
   database.ref().push({
@@ -67,6 +68,7 @@ $("#add-user").click(function(event){
     nextarrival:nextTrainArrival,
     minutesAway: tMinutesTillTrain,
   });
+});  
 
   //Create Firebase event for adding data to the database 
   //and a row in the html when a user adds an entry
@@ -78,8 +80,7 @@ $("#add-user").click(function(event){
         $("<td>").text(sv.destination),
         $("<td>").text(sv.frequency),
         $("<td>").text(sv.nextarrival),
-        $("<td>").text(sv.MinutesAway));
-        
-        $("#employee-table > tbody").append(newRow);
+        $("<td>").text(sv.minutesAway));
+
+        $("tbody").append(newRow);
   });
-});
