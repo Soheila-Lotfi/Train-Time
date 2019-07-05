@@ -12,4 +12,12 @@ var config = {
 firebase.initializeApp(config);
 
 // Create a variable to reference the database.
-  var database = firebase.database();
+var database = firebase.database();
+
+// determine the variables
+var name = "";
+var destination = "";
+var startTime= "";
+var nextarrival = "";
+var frequency=0;
+var minutesAway=0;
