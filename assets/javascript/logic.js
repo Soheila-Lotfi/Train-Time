@@ -57,4 +57,15 @@ $("#add-user").click(function(event){
     var nextArrival = moment().add(tMinutesTillTrain, "minutes");
     var nextTrainArrival=moment(nextArrival).format("hh:mm");
 
+// Uploads employee data to the database
+  database.ref().push({
+
+    name:trainName,
+    destination:destination,
+    startTime:firstTime,
+    frequency:tFrequency,
+    nextarrival:nextTrainArrival,
+    minutesAway: tMinutesTillTrain,
+  });
+
 });
