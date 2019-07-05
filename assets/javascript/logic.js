@@ -21,3 +21,17 @@ var startTime= "";
 var nextarrival = "";
 var frequency=0;
 var minutesAway=0;
+
+// when the user clicks the sumit button, 
+//grab the user inputs and write it on the firebase database
+
+$("#add-user").click(function(event){
+
+    event.preventDefault();
+  
+    var trainName=$("#train-name-input").val().trim();
+    var destination=$("#destination-input").val().trim();
+    var firstTime=$("#time-input").val().trim();
+    var tFrequency=$("#frequency-input").val().trim();
+  
+});
